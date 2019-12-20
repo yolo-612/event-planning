@@ -1,0 +1,323 @@
+/*body, div, ul, li, header {*/
+            /*padding: 0;*/
+            /*margin: 0 auto;*/
+        /*}*/
+
+        *{
+            padding:0;
+            margin:0 auto;/*左右则根据宽度自适应相同值（即居中）*/
+        }
+
+        li{
+            list-style: none;
+        }
+        /*body {*/
+	    /*background-color: #edf0f1;*/
+        /*}*/
+
+        input button{
+            border:0;
+            outline:none; /*（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。*/
+        }
+
+        p, a, span, input, .app-title, .okAddBtn {
+	    font-family: "PingFang SC","Helvetica Neue","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+        }
+
+        .app-header{
+            position: fixed;
+	        top: 0;
+	        left: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);   /*盒子阴影哦*/
+            width:100%;
+            height:60px;
+            background-color:rgb(37, 185, 154);  /*待改
+            transition: top .4s ease, background-color .5s;   css过度属性*/
+            z-index:8;
+        }
+
+        .headerUp{
+	        top: -65px;
+        }
+
+        .headerDown{
+	        top: 0;
+        }
+
+
+        .app-title{
+            text-align:center;
+            line-height: 60px;
+            font-size:22px;
+            color:white;
+            letter-spacing: 1px;  /*单词间隔*/
+
+        }
+
+        .app-menu{
+            position:absolute;
+            width:40px;
+            /*height:40px;   外层div不指定高度*/
+            top:14px;
+            left:5%;
+            border-radius: 3px;
+
+        }
+        /*.app-menu:active {*/
+	/*background-color: rgba(255, 255, 255, 0.2);*/
+/*}   待     */
+
+        .mstrip{
+            width:24px;
+            height:2px;
+            background-color: white;
+            border-radius: 10px;
+            margin:7px auto;
+            /*transform-origin: 0;  css3中的*/
+        }
+
+        .app-back{
+            position:absolute;
+            display:none;
+            top:15px;
+            left:5%;
+            /*padding:5px;*/
+            width:30px;
+            height:30px;   /* 这两个设置的是才是盒子的宽高  padding和margin都是向外扩展的*/
+        }
+
+        .app-back .icon{
+            width:90%;
+            height:90%;
+        }
+
+        .app-back:active {
+	    background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .app-main{
+            position:relative;
+            top:80px;  /*它是相对自己的高度*/
+        }
+
+        .todo-list{
+            position:absolute;
+            width:100%;
+            /*display:none;*/
+            padding: 0;
+	        margin: 0 auto;
+	        padding-bottom: 100px;  /*  ???为什么是这个？？*/
+        }
+
+        .completed-list {
+	        position: absolute;
+	        display: none;
+	        width: 100%;
+	        padding-bottom: 100px;
+        }
+
+        .completed-list span {
+	        opacity: .4;
+	        text-decoration: line-through;
+        }
+
+        .task-item {
+            position: relative;
+            list-style: none;
+            width: 90%;
+            padding: 20px 0;
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+            overflow: auto;
+            margin-bottom: 15px;
+        }
+        /*.task-item:last-child {*/
+            /*margin-bottom: 10px;*/
+        /*}*/
+    /*.task-item span{*/
+        /*float: left;*/
+        /*width: 70%;*/
+        /*margin-left: 14px;*/
+        /*font-weight: 200;*/
+        /*}*/
+        /*.task-item i {*/
+            /*display: none;*/
+        /*}*/
+.task-item svg {
+	width: 28px;
+	height: 28px;
+	cursor: pointer;
+	fill: #c5c9ce;
+	padding: 6px;
+}
+.task-title {
+	font-size: 16px;
+}
+.clear {
+	position: absolute;
+	top: 12px;
+	right: 52px;
+}
+/*.completed-list .clear{*/
+	/*right: 12px;*/
+/*}*/
+.finish {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+/*.tips {*/
+	/*font-size: 20px;*/
+	/*color: #9E9E9E;*/
+	/*text-align: center;*/
+	/*margin-top: 60px;*/
+/*}*/
+    .addContent{
+	display: none;
+	position: fixed;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: rgba(255, 255, 255, 1);
+    }
+
+   .add-task-input {
+	margin: 0 auto;
+	margin-top: 100px;
+	display: block;
+	width: 90%;
+	height: 50px;
+	background-color: transparent;
+	border-bottom: 2px solid #BDBDBD;   /*只设置底部的边框*/
+	font-size: 22px;
+	color: #212121;
+	transition: .3s ease;
+}
+        .btnBox{
+            position:fixed;
+            right:5%;
+            bottom:3%;
+            z-index: 10;
+	        transition: bottom .3s ease-out;
+        }
+
+        .btnDown{
+	        bottom: -60px;
+        }
+        .btnUp{
+	        bottom: 3%;
+        }
+
+        .addBtn{
+            position: relative;
+            z-index: 12;
+            width: 60px;
+            height: 60px;
+            background-color: #FFC107;
+            border-radius: 30px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+        }
+        .addBtn svg {
+            width: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            fill: #fff;
+            transition: .2s ease;
+        }
+
+        .okAddBtn{
+           position: absolute;
+            bottom: 5px;
+            right: 5px;
+            z-index: 11;
+            width: 50px;
+            height: 50px;
+            background-color: #757575;
+            border-radius: 100px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+            font-size: 14px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            transition: .15s ease-out;
+        }
+
+        .menu-content{
+            position:fixed;
+            top:0;
+            width:250px;
+            left:-260px;
+            z-index: 3;
+            height: 100%;
+            background-color: #fff;
+            transition: .3s ease;
+        }
+
+        .menu-list{
+            width: 100%;
+            height: 300px;
+            margin-top: 80px;
+        }
+
+        .menu-item {
+            position: relative;
+            height: 60px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .menu-item:hover, .menu-item:active {
+	        background-color: #eee;
+        }
+
+        .menu-text {
+            position: absolute;
+            left: 65px;
+            top: 21px;
+            font-size: 16px;
+            color: #757575;
+            letter-spacing: 1px;
+        }
+
+        .menu-item svg {
+            position: absolute;
+            left: 30px;
+            top: 22px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .cover{
+           position: fixed;
+            top: 0;
+            left: 0;
+            z-index:2;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.4;
+            display: none;
+
+        }
+
+        .menu-subCard {
+            display:none;
+            width:90%;
+            height:360px;
+            position:fixed;
+            top:200px;
+            left:5%;
+            z-index:2;
+            border-radius: 3px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+            animation: flyup .4s;
+            -webkit-animation: flyup .4s;
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+        }
+
+
